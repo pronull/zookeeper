@@ -20,3 +20,12 @@
 ####打开另一个终端，启动客户端/bin/zkCli.sh
 ####可以看到客户端链接服务其的信息，现在，在客户端输入ls / ，可以看到，zookeeper只有一个跟节点，创建一个znode，命令：create /workers ""  ,ls /
 可以看到有一个新创建的节点workers，现在删除znode : delete /workers  ,退出客户端,quit，退出服务器：zkServer.sh stop
+
+###zookeeper会话及生命周期
+zookeeper 生命周期就是从创建到结束，无论是正常关闭还是因为超市而导致的过期。
+zookeeper 的会话状态：connecting,connected,closed,not_connected.
+一个会话从not_connected 开始，当zookeeper客户端初始化后转到connecting状态，与服务器端链接后转为connected状态。
+
+`经过时间t后服务其接收不到会话的任何消息，服务器就会声明会话过期，而在客户端，经过t/3时间未接收到任何消息，客户端将会想服务器发送心跳消息，
+在经过2t/3时间后，zookeeper将会开始寻找其他服务器，而此时他还有t/3的时间去寻找`
+
