@@ -37,4 +37,5 @@ zookeeper 的会话状态：connecting,connected,closed,not_connected.
 <br>clientPort=2181(对应文件的端口号分别修改，以免冲突),<br>server.1=127.0.0.1:2222:2223,<br>server.2=127.0.0.1:3333:3334,
 <br>server.3=127.0.0.1:4444:4445
 5. 启动zk服务器: cd z1 | $PATH_TO_ZK/bin/zkServer.sh start ./z1.cfg    cd z2 |  $PATH_TO_ZK/bin/zkServer.sh start ./z2.cfg
-6. 停止zk服务器: cd z1 | $PATH_TO_ZK/bin/zkServer.sh stop ./z1.cfg
+6. 启动zk客户端： $PATH_TO_ZK/bin/zkCli.sh -server 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183(哪怕没有启动server3也可以写上去)
+7. 停止zk服务器: cd z1 | $PATH_TO_ZK/bin/zkServer.sh stop ./z1.cfg
