@@ -39,3 +39,10 @@ zookeeper 的会话状态：connecting,connected,closed,not_connected.
 5. 启动zk服务器: cd z1 | $PATH_TO_ZK/bin/zkServer.sh start ./z1.cfg    cd z2 |  $PATH_TO_ZK/bin/zkServer.sh start ./z2.cfg
 6. 启动zk客户端： $PATH_TO_ZK/bin/zkCli.sh -server 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183(哪怕没有启动server3也可以写上去)
 7. 停止zk服务器: cd z1 | $PATH_TO_ZK/bin/zkServer.sh stop ./z1.cfg
+
+##zookeeper主-从模式的实现
+
+主从模式包括三个角色：<br>
+-    主节点:主节点负责监视新的从节点和任务，分配任务给可用的从节点
+-    从节点：从节点会通过系统注册自己，一琼宝主节点看到他们可以执行任务，然后开始监视新任务
+-    客户端：客户端负责创建新任务并等待系统的响应
