@@ -46,3 +46,5 @@ zookeeper 的会话状态：connecting,connected,closed,not_connected.
 -    主节点:主节点负责监视新的从节点和任务，分配任务给可用的从节点
 -    从节点：从节点会通过系统注册自己，一琼宝主节点看到他们可以执行任务，然后开始监视新任务
 -    客户端：客户端负责创建新任务并等待系统的响应
+
+##zookeeper 之API使用
